@@ -19,7 +19,7 @@ evenly_divisible = catch :gotit do
 
     for j in 2..max_divisors do
       if dividend % j == 0
-        divisible_count = divisible_count + 1
+        divisible_count += 1
       else
         break
       end
