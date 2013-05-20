@@ -13,11 +13,11 @@ max_divisors = 20
 
 evenly_divisible = catch :gotit do
 
-  for i in 1..max_dividends_seed do
+  (1..max_dividends_seed).each do |i|
     dividend = i * max_divisors
     divisible_count = 0
 
-    for j in 2..max_divisors do
+    (2..max_divisors).each do |j|
       if dividend % j == 0
         divisible_count += 1
       else

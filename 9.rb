@@ -10,10 +10,10 @@
 
 
 
-for c in 334..500 do
+(334..500).each do |c|
   left = 1000 - c
 
-  for b in 1..left
+  (1..left).each do |b|
     a = left - b
 
     abpow = a ** 2 + b ** 2

@@ -31,7 +31,7 @@ grupetes = []
 resultadinis = []
 hasta_donde = (giganto.length) - 5
 
-for i in 0..hasta_donde do
+(0..hasta_donde).each do |i|
   cositin = giganto[i, 5]
   grupetes << cositin
 end
@@ -45,7 +45,7 @@ def megachopper(numerito)
   multi = a * b * c * d * e
 end
 
-for i in 0..grupetes.length-1 do
+(0..grupetes.length - 1).each do |i|
   supermagia = megachopper(grupetes[i])
   resultadinis << supermagia
 end

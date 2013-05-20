@@ -15,7 +15,7 @@ tot = 0
 
 max = 4000000
 
-for i in 0..2000 do
+(0..2000).each do |i|
   if bet <= max
     puts bet
     cha = bet + alp

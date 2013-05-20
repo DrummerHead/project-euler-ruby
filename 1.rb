@@ -5,7 +5,7 @@
 
 tot = 0
 
-for i in 0..999 do
+(0..999).each do |i|
   mul3 = (i%3 == 0)
   mul5 = (i%5 == 0)
 

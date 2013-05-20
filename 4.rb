@@ -11,8 +11,8 @@ steps = 100
 posso = []
 
 
-for i in 100..999
-  for j in steps..999
+(100..999).each do |i|
+  (steps..999).each do |j|
     posso << [i, j, i*j]
   end
   steps = steps +1
@@ -20,8 +20,7 @@ end
 
 mangio = posso.sort {|x, y| x[2] <=> y[2]}
 
-for i in mangio
-
+mangio.each do |i|
   effo = i[2].to_s
   offe = effo.reverse
 
