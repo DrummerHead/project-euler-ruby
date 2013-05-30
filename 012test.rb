@@ -1,6 +1,6 @@
 # in this file I'm trying to prove a theory I read somewhere that said
 # that if you find all the prime factors of a number, and then add one
-# to each of the potencies of the thingies, and multiply thoes numbers;
+# to each of the potencies of the thingies, and multiply those numbers;
 # you get the amount of total divisors that that number has (prime or
 # not)
 #
