@@ -10,25 +10,22 @@
 alp = 0
 bet = 1
 cha = 1
+i = 0
 
 tot = 0
 
 max = 4000000
 
-(0..2000).each do |i|
-  if bet <= max
-    puts bet
-    cha = bet + alp
-    alp = bet
-    bet = cha
+while bet <= max
+  cha = bet + alp
+  alp = bet
+  bet = cha
 
-    if (bet % 2 == 0)
-      tot += bet
-    end
-  else
-    break
+  if (bet % 2 == 0)
+    tot += bet
   end
+
+  i += 1
 end
 
-puts "Tha total is:"
 puts tot

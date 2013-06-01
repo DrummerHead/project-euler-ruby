@@ -15,7 +15,7 @@ posso = []
   (steps..999).each do |j|
     posso << [i, j, i*j]
   end
-  steps = steps +1
+  steps += 1
 end
 
 mangio = posso.sort {|x, y| x[2] <=> y[2]}

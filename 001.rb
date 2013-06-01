@@ -10,7 +10,7 @@ tot = 0
   mul5 = (i%5 == 0)
 
   if mul3 or mul5
-    tot = tot + i
+    tot += i
   end
 end
 
