@@ -29,6 +29,35 @@ i = 0
 j = 0
 
 
+def prime_potencies_find(number)
+  if number > 1
+    if (number % @primes[@step]) == 0
+      divide = number / @primes[@step]
+      @potencies[@step] += 1
+
+      prime_potencies_find(divide)
+    else
+      @step += 1
+      @potencies[@step] = 0
+
+      if @step >= @primes.length
+        puts "Sorry, run out of primes to check..."
+      else
+        prime_potencies_find(number)
+      end
+    end
+  end
+end
+
+def find_multiplication_of_potencies_plus_one(array)
+  multiplication_of_potencies_plus_one = 1  #short
+  array.each do |i|
+    l = i + 1
+    multiplication_of_potencies_plus_one *= l
+  end
+  return multiplication_of_potencies_plus_one
+end
+
 loop do
   i += 1
   j += i
@@ -36,40 +65,14 @@ loop do
   @potencies_plus_one = []
   @step = 0
 
-  def prime_potencies_find(number)
-    if number > 1
-      if (number % @primes[@step]) == 0
-        divide = number / @primes[@step]
-        @potencies[@step] += 1
-
-        prime_potencies_find(divide)
-      else
-        @step += 1
-        @potencies[@step] = 0
-
-        if @step >= @primes.length
-          puts "Sorry, run out of primes to check..."
-        else
-          prime_potencies_find(number)
-        end
-      end
-    end
-  end
   prime_potencies_find(j)
-
-  multiplication_of_potencies_plus_one = 1  #short
-  @potencies.each do |i|
-    l = i + 1
-    multiplication_of_potencies_plus_one *= l
-  end
-
+  multiplication_of_potencies_plus_one = find_multiplication_of_potencies_plus_one(@potencies)
 
   if multiplication_of_potencies_plus_one > divisors_goal
     puts j
     puts multiplication_of_potencies_plus_one
     break
   end
-
 end
 
 # The code is nasty. I'm gonna have to do a code review on this one.
