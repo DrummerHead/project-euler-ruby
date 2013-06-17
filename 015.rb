@@ -8,17 +8,21 @@
 
 @result = 0
 
-def reduceGrid(ary)
+def reduce_grid(ary)
   if ary[0] == 1 || ary[1] == 1
-    @result += (ary.max + 1)
-  else
-    new_x = [ary[0] -1, ary[1]]
-    new_y = [ary[0], ary[1] -1]
+    @result += ([ary[0], ary[1]].max + 1) * ary[2]
 
-    reduceGrid(new_x)
-    reduceGrid(new_y)
+  elsif ary[0] == ary[1]
+    new_xy = [ary[0] -1, ary[1], ary[2] * 2]
+    reduce_grid(new_xy)
+
+  else
+    new_x = [ary[0] -1, ary[1], ary[2]]
+    new_y = [ary[0], ary[1] -1, ary[2]]
+    reduce_grid(new_x)
+    reduce_grid(new_y)
   end
 end
 
-reduceGrid([14,14])
+reduce_grid([15, 15, 1])
 puts @result

@@ -69,22 +69,27 @@ puts three
 
 @result = 0
 
-def reduceGrid(ary)
+def reduce_grid(ary)
   puts "ary is #{ary.inspect}"
 
   if ary[0] == 1 || ary[1] == 1
-    puts "result (#{@result}) = result + #{(ary.max + 1)}"
-    @result += (ary.max + 1)
+    puts "result (#{@result}) = result + #{([ary[0], ary[1]].max + 1)} by #{ary[2]}"
+    @result += (([ary[0], ary[1]].max + 1) * ary[2])
+
+  elsif ary[0] == ary[1]
+    new_xy = [ary[0] -1, ary[1], ary[2] * 2]
+    puts "calculate doubloon #{new_xy.inspect}"
+    reduce_grid(new_xy)
+
   else
-    new_x = [ary[0] -1, ary[1]]
-    new_y = [ary[0], ary[1] -1]
+    new_x = [ary[0] -1, ary[1], ary[2]]
+    new_y = [ary[0], ary[1] -1, ary[2]]
 
     puts "calculate #{new_x.inspect}"
-    reduceGrid(new_x)
+    reduce_grid(new_x)
 
     puts "calculate #{new_y.inspect}"
-    reduceGrid(new_y)
-
+    reduce_grid(new_y)
 
     # puts new_x.inspect
     # puts new_y.inspect
@@ -94,7 +99,10 @@ def reduceGrid(ary)
   puts "======="
 end
 
-reduceGrid([20,20])
+reduce_grid([10, 10, 1])
+
+
+# FUCK YEAH
 
 =begin
 reduceGrid(jorge)
