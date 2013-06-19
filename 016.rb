@@ -2,10 +2,7 @@
 #
 # What is the sum of the digits of the number 21000?
 
-num = 2 ** 1000
-result = num.to_s.split('').map(&:to_i).reduce(:+)
-
-puts result
+puts (2 ** 1000).to_s.split('').map(&:to_i).reduce(:+)
 
 # I guess this is really a problem when you can't handle big nums
 # Done
