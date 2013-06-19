@@ -32,12 +32,7 @@ hasta_donde = (giganto.length) - 5
 grupetes = (0..hasta_donde).map { |i| giganto[i, 5] }
 
 def megachopper(numerito)
-  a = numerito[0].to_i
-  b = numerito[1].to_i
-  c = numerito[2].to_i
-  d = numerito[3].to_i
-  e = numerito[4].to_i
-  multi = a * b * c * d * e
+  numerito.split('').map(&:to_i).reduce(:*)
 end
 
 resultadinis = (0..grupetes.length - 1).map { |i| megachopper(grupetes[i]) }
