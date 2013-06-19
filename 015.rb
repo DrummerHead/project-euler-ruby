@@ -6,20 +6,20 @@
 # How many such routes are there through a 20×20 grid?
 
 
-@result = 0
-
 def reduce_grid(x, y, m)
   if x == 1 || y == 1
-    @result += ([x, y].max + 1) * m
+    ([x, y].max + 1) * m
 
   elsif x == y
     reduce_grid(x -1, y, m * 2)
 
   else
-    reduce_grid(x -1, y, m)
-    reduce_grid(x, y -1, m)
+    reduce_grid(x -1, y, m) + reduce_grid(x, y -1, m)
   end
 end
 
-reduce_grid(14, 14, 1)
-puts @result
+result = reduce_grid(20, 20, 1)
+puts result
+
+# Slow solution for 015 (up to 20 minutes)
+# Check 015_cache.rb for fastest solution
