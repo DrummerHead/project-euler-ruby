@@ -1,0 +1,26 @@
+body {
+  min-width: 202em;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: monospace;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul ul {
+  display: block;
+}
+.pyramid > li {
+  display: block;
+  clear: both;
+}
+.pyramid > li ul,
+.pyramid > li ul li {
+  float: left;
+}
+.pyramid > li ul li {
+  width: 2em;
+  text-align: center;
+}
