@@ -11,7 +11,12 @@ var generateHTML = function(pyramid){
   for(row in pyramid){
     html += '<li style="margin-left:'+ (rowLength - row - 1) +'em"><ul>';
     for(brick in pyramid[row]){
-      html += '<li style="background-color:' + calculateColor(pyramid[row][brick]) + '">' + pyramid[row][brick] + '</li>';
+      if(pyramid[row][brick][0]){
+        html += '<li class="chosen-one" style="background-color:' + calculateColor(pyramid[row][brick]) + '">' + pyramid[row][brick] + '</li>';
+      }
+      else{
+        html += '<li style="background-color:' + calculateColor(pyramid[row][brick]) + '">' + pyramid[row][brick] + '</li>';
+      }
     }
     html += '</ul></li>';
   }
