@@ -2,16 +2,9 @@
 #
 # Find the sum of all the primes below two million.
 
+
 require 'prime'
-
-max = 2000000
-result = 0
-
-Prime.each(max) do |i|
-  result += i
-end
-
-puts result
+puts Prime.each(2000000).reduce(:+)
 
 
 # Cheating at its finest
