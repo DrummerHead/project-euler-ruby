@@ -5,35 +5,30 @@
 # by all of the numbers from 1 to 20?
 
 
+got_solution = false
+max_divisor = 20
+solution_divided_by_max_divisor = 0
 
 
-max_dividends_seed = 77777777777777
-max_divisors = 20
+while got_solution == false
+  test_solution = (solution_divided_by_max_divisor += 1) * max_divisor
 
+  divisor = max_divisor - 1
 
-evenly_divisible = catch :gotit do
-
-  (1..max_dividends_seed).each do |i|
-    dividend = i * max_divisors
-    divisible_count = 0
-
-    (2..max_divisors).each do |j|
-      if dividend % j == 0
-        divisible_count += 1
-      else
-        break
-      end
-
-      if divisible_count == max_divisors - 1
-        throw :gotit, dividend
-      end
+  while divisor >= 2
+    if test_solution % divisor == 0
+      divisor -= 1
+    else
+      break
     end
-
   end
 
+  if divisor == 1
+    got_solution = true
+    puts test_solution
+  end
 end
 
-puts "tha number is #{evenly_divisible}"
 
-# WHOOOOAAA!! This solution is FUCKING SLOW!!
-# Edit: Some refactor made it slightly less sucking... still slow
+# Rewrite from scratch of 005 to test other language comparative speed
+# Much faster now, but let's see the other language...
