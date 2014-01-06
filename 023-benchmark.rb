@@ -17,6 +17,11 @@
 # of two abundant numbers.
 
 
+
+start = Time.now
+
+
+
 raw_sum_of_abundant_numbers = []
 nums_which_cannot_be_written_as_the_sum_of_two_abundant_numbers = []
 
@@ -34,8 +39,12 @@ def sum_of_proper_divisors(n)
   return proper_divisors.reduce(:+)
 end
 
-
 abundant_numbers = (12..28111).select{ |num| num < sum_of_proper_divisors(num) }
+
+
+
+find_abundant_numbers = Time.now
+
 
 
 abundant_numbers.each_with_index do |first_num, index|
@@ -48,16 +57,43 @@ abundant_numbers.each_with_index do |first_num, index|
 end
 
 
+
+raw_sum_abundant_numbers = Time.now
+
+
+
 sum_of_abundant_numbers = raw_sum_of_abundant_numbers.sort.uniq
+
+
+
+refine_sum_abundant_numbers = Time.now
+
 
 
 nums_which_cannot_be_written_as_the_sum_of_two_abundant_numbers =
   (1..28123).to_a - sum_of_abundant_numbers
 
 
+
+find_result_array = Time.now
+
+
+
 puts nums_which_cannot_be_written_as_the_sum_of_two_abundant_numbers.reduce(:+)
 
 
-# This is so brute-forcey... but the problem is also so annoying
-# Why do I do this? Hahaha
-# EDIT: Improved performance quite a bit
+
+finish = Time.now
+
+
+puts "================="
+puts "find_abundant_numbers - start = #{find_abundant_numbers - start}"
+puts "raw_sum_abundant_numbers - find_abundant_numbers = #{raw_sum_abundant_numbers - find_abundant_numbers}"
+puts "refine_sum_abundant_numbers - raw_sum_abundant_numbers = #{refine_sum_abundant_numbers - raw_sum_abundant_numbers}"
+puts "find_result_array - refine_sum_abundant_numbers = #{find_result_array - refine_sum_abundant_numbers}"
+puts "finish - find_result_array = #{finish - find_result_array}"
+puts "================="
+puts "Total time = #{finish - start}"
+
+
+# Improved from previous 60s to 5s
